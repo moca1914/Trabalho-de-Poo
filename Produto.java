@@ -1,5 +1,7 @@
 package modelo;
 
+import excecao.PrecoInvalidoException;
+
 import java.util.List;
 
 public abstract class Produto{
@@ -27,7 +29,7 @@ public abstract class Produto{
 
     public void setPreco(double preco) {
         if (preco <= 0) {
-            throw new IllegalArgumentException("Preço inválido");
+            throw new PrecoInvalidoException();
         }
         this.preco = preco;
     }
