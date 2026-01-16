@@ -1,16 +1,21 @@
 package servico;
 
 import modelo.Produto;
+import modelo.RestricaoAlimentar;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cardapio implements Filtravel{
 
-    private List<Produto> produtos = new ArrayList<>();
+    private static List<Produto> produtos = new ArrayList<>();
 
     public void adicionarProduto(Produto produto) {
         produtos.add(produto);
+    }
+    public void removerProduto(Produto produto){
+        produtos.remove(produto);
     }
 
     public List<Produto> listarDisponiveis(){
@@ -24,7 +29,7 @@ public class Cardapio implements Filtravel{
         return disponiveis;
     }
 
-    public List<Produto> filtrarPorRestricao(String restricao){
+    public List<Produto> filtrarPorRestricao(RestricaoAlimentar restricao){
         List<Produto> filtrados = new ArrayList<>();
 
         for (Produto produto : produtos){
