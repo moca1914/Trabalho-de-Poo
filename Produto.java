@@ -1,7 +1,6 @@
 package modelo;
 
 import excecao.PrecoInvalidoException;
-
 import java.util.List;
 
 public abstract class Produto{
@@ -10,10 +9,9 @@ public abstract class Produto{
     protected double preco;
     protected boolean disponivel;
     protected int tempoPreparo;
+    protected List<RestricaoAlimentar> restricoes;
 
-    protected List<String> restricoes;
-
-    public Produto(String nome, double preco, int tempoPreparo, List<String> restricoes) {
+    public Produto(String nome, double preco, int tempoPreparo, List<RestricaoAlimentar> restricoes) {
         this.nome = nome;
         setPreco(preco);
         this.tempoPreparo = tempoPreparo;
@@ -46,7 +44,11 @@ public abstract class Produto{
         return tempoPreparo;
     }
 
-    public List<String> getRestricoes() {
+    public List<RestricaoAlimentar> getRestricoes() {
         return restricoes;
     }
+    public String getNome(){
+        return nome;
+    }
+
 }
