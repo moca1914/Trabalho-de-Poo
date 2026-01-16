@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Sobremesa extends Produto {
 
-    public Sobremesa(String nome, double preco, int tempoPreparo, List<String> restricoes) {
+    public Sobremesa(String nome, double preco, int tempoPreparo, List<RestricaoAlimentar> restricoes) {
         super(nome, preco, tempoPreparo, restricoes);
     }
 
