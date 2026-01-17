@@ -22,13 +22,21 @@ public class Pedido {
         this.finalizado = false;
     }
 
-    public void adicionarItem(Produto produto, String comentario) {
+    public ItemPedido adicionarItem(Produto produto, String comentario) {
 
-        if(!produto.isDisponivel()){
+        if (finalizado) {
+            throw new PedidoFinalizadoException();
+        }
+
+        if (!produto.isDisponivel()) {
             throw new ProdutoIndisponivelException();
         }
-        itens.add(new ItemPedido(produto, comentario));
+
+        ItemPedido item = new ItemPedido(produto, comentario);
+        itens.add(item);
+        return item;
     }
+
 
     public void removerItem(ItemPedido item) {
 
@@ -62,6 +70,13 @@ public class Pedido {
         }
         finalizado = true;
     }
+    
+    public void verificarSePodeAlterar() throws PedidoFinalizadoException {
+        if (finalizado) {
+            throw new PedidoFinalizadoException();
+        }
+    }
+
 
     public int getNumero() {
         return numero;
