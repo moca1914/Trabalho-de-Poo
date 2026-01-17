@@ -17,4 +17,13 @@ public class ItemPedido {
     public String getComentario() {
         return comentario;
     }
+    
+    @Override
+    public String toString() {
+        if (comentario == null || comentario.isEmpty()) {
+            return produto.getNome();
+        }
+        return produto.getNome() + " (Obs: " + comentario + ")";
+    }
+
 }
