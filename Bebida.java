@@ -10,6 +10,6 @@ public class Bebida extends Produto {
 
     @Override
     public String getCategoria() {
-        return "Bebidas";
+        return "Bebida";
     }
 }
